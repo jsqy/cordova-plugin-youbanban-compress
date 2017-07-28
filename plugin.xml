@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="cordova-plugin-youbanban-compress" version="0.0.1"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>compress</name>
+    <description>Description</description>
+    <js-module name="compress" src="www/compress.js">
+        <clobbers target="cordova.plugins.compress"/>
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="compress">
+                <param name="android-package" value="com.youbanban.cordova.compress.compress"/>
+            </feature>
+        </config-file>
+      <source-file src="src/android/compress.java" target-dir="src/com/youbanban/cordova/compress"/>
+      <source-file src="src/android/ImageSize.java" target-dir="src/com/youbanban/cordova/compress"/>
+      <source-file src="src/android/ImageUtils.java" target-dir="src/com/youbanban/cordova/compress"/>
+    </platform>
+</plugin>
