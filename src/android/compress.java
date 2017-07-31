@@ -23,7 +23,6 @@ public class compress extends CordovaPlugin {
     	  activity = this.cordova.getActivity();
           this.callbackContext = callbackContext;
         if(action.equals("getCamera")){
-        	Toast.makeText(activity, "插件里面"+args.getString(0), 2000).show();
         	String result = "";
         	for(int i =2;i< args.length();i++){
         		result = result + ImageUtils.saveBitmap(activity, args.getString(i),Integer.parseInt(args.getString(0)),Integer.parseInt(args.getString(1)));
