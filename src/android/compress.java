@@ -5,6 +5,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.youbanban.cordova.chooseimages.imageloader.MyAdapter;
 
@@ -23,14 +24,18 @@ public class compress extends CordovaPlugin {
     	  activity = this.cordova.getActivity();
           this.callbackContext = callbackContext;
         if(action.equals("getCamera")){
-        	String result = "";
-        	for(int i =2;i< args.length();i++){
-        		result = result + ImageUtils.saveBitmap(activity, args.getString(i),Integer.parseInt(args.getString(0)),Integer.parseInt(args.getString(1)));
+        	String result = ""; 	
+        	for(int i =0;i< args.length();i++){
+				String str1 = args.getString(i);
+        		JSONObject jsonObject = new JSONObject(args.getString(i));
+        		String width = jsonObject.getString("width");
+        		String height = jsonObject.getString("height");
+        		String url = jsonObject.getString("url");
+        		result = result + ImageUtils.saveBitmap(activity, url,Integer.parseInt(width),Integer.parseInt(height));
         		if(i < args.length()-1){
 	            	   result = result + ",";
         		}
         	}
-
         	callbackContext.success(result);
         }
         return true;
