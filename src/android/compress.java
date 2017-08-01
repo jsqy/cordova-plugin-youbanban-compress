@@ -23,7 +23,7 @@ public class compress extends CordovaPlugin {
     throws JSONException {
     	  activity = this.cordova.getActivity();
           this.callbackContext = callbackContext;
-        if(action.equals("getCamera")){
+        if(action.equals("compress")){
         	String result = ""; 	
         	for(int i =0;i< args.length();i++){
 				String str1 = args.getString(i);

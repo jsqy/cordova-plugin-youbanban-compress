@@ -11,7 +11,7 @@
             items.push(item);
           }
           var compress = cordova.require('cordova-plugin-youbanban-compress.compress');
-          compress.getCamera(function(message) {
+          compress.compress(function(message) {
             var imgPaths = message.split(",");
             if(message == ""){
               alert("并没有选择图片");
